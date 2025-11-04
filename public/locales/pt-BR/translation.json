@@ -1,0 +1,14 @@
+{
+  "calculator": {
+    "title": "Calculadora",
+    "currency": "Moeda",
+    "amount": "Quantidade",
+    "result": "Resultado",
+    "calculate": "Calcular"
+  },
+  "currencySymbol": "R$",
+  "grandTotal": "Total: {{total}}",
+  "denomination": "{{value}}",
+  "rowSubtotal": "{{value}}",
+  "clearAll": "Limpar Tudo"
+}

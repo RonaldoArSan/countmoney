@@ -1,0 +1,7 @@
+CountMoney is a versatile application designed to simplify currency conversion and financial calculations. Its primary objective is to provide users with a seamless experience for converting currencies, calculating loan installments, and staying informed about currency news.
+
+Key features include:
+
+- Currency Conversion: Convert between different currencies using real-time exchange rates.
+- Loan Calculator: Calculate loan installments based on principal amount, interest rate, and loan term.
+- Currency News: Stay updated with the latest news and trends in the currency market.
