@@ -45,6 +45,15 @@ const PageHeader = styled.header<{ darkMode: boolean; isPWA?: boolean }>`
   }
 `;
 
+const HeaderContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: ${breakpoints.xl};
+  margin: 0 auto;
+`;
+
 const HeaderGroup = styled.div`
   display: flex;
   align-items: center;
@@ -285,20 +294,22 @@ function Header() {
 
   return (
     <PageHeader darkMode={darkMode} isPWA={isPWA}>
-      <LogoContainer>
-        <LogoImage src="/logo.JPG" alt="CountMoney Logo" />
-        <AppTitle>CountMoney</AppTitle>
-      </LogoContainer>
-      
-      <HeaderGroup>
-        {location && <UserLocation>📍 {location}</UserLocation>}
-        <ToggleButton onClick={toggleTheme}>
-          {darkMode ? '☀️ Claro' : '🌙 Escuro'}
-        </ToggleButton>
-        <MobileMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          ☰
-        </MobileMenuButton>
-      </HeaderGroup>
+      <HeaderContent>
+        <LogoContainer>
+          <LogoImage src="/logo.JPG" alt="CountMoney Logo" />
+          <AppTitle>CountMoney</AppTitle>
+        </LogoContainer>
+        
+        <HeaderGroup>
+          {location && <UserLocation>📍 {location}</UserLocation>}
+          <ToggleButton onClick={toggleTheme}>
+            {darkMode ? '☀️ Claro' : '🌙 Escuro'}
+          </ToggleButton>
+          <MobileMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            ☰
+          </MobileMenuButton>
+        </HeaderGroup>
+      </HeaderContent>
     </PageHeader>
   );
 }
