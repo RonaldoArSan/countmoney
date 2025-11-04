@@ -21,8 +21,8 @@ const PageHeader = styled.header<{ darkMode: boolean; isPWA?: boolean }>`
   box-shadow: ${shadows.sm};
   display: ${props => props.isPWA ? 'none' : 'flex'};
   z-index: 1000;
-  justify-content: space-between;
   align-items: center;
+  height: 100%;
   padding: 0 1rem;
   transition: all 0.3s ease;
 
@@ -31,25 +31,13 @@ const PageHeader = styled.header<{ darkMode: boolean; isPWA?: boolean }>`
     height: ${props => props.isPWA ? '0px' : '45px'};
     padding: 0 0.75rem;
   }
-
-  /* Glassmorphism effect */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${props => props.darkMode ? gradients.glass : 'rgba(255, 255, 255, 0.1)'};
-    pointer-events: none;
-  }
 `;
 
 const HeaderGroup = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
   gap: 1rem;
+  height: 100%;
   z-index: 1;
   position: relative;
 
