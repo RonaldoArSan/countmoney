@@ -22,7 +22,7 @@ const PageHeader = styled.header<{ darkMode: boolean; isPWA?: boolean }>`
   display: ${props => props.isPWA ? 'none' : 'flex'};
   z-index: 1000;
   align-items: center;
-  height: 100%;
+  justify-content: center;
   padding: 0 1rem;
   transition: all 0.3s ease;
 
@@ -30,6 +30,20 @@ const PageHeader = styled.header<{ darkMode: boolean; isPWA?: boolean }>`
   @media (max-width: ${breakpoints.sm}) {
     height: ${props => props.isPWA ? '0px' : '45px'};
     padding: 0 0.75rem;
+  }
+`;
+
+const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  gap: 1rem;
+
+  @media (max-width: ${breakpoints.sm}) {
+    gap: 0.5rem;
   }
 `;
 
@@ -273,20 +287,22 @@ function Header() {
 
   return (
     <PageHeader darkMode={darkMode} isPWA={isPWA}>
-      <LogoContainer>
-        <LogoImage src="/logo.JPG" alt="CountMoney Logo" />
-        <AppTitle>CountMoney</AppTitle>
-      </LogoContainer>
-      
-      <HeaderGroup>
-        {location && <UserLocation>📍 {location}</UserLocation>}
-        <ToggleButton onClick={toggleTheme}>
-          {darkMode ? '☀️ Claro' : '🌙 Escuro'}
-        </ToggleButton>
-        <MobileMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          ☰
-        </MobileMenuButton>
-      </HeaderGroup>
+      <HeaderContent>
+        <LogoContainer>
+          <LogoImage src="/logo.JPG" alt="CountMoney Logo" />
+          <AppTitle>CountMoney</AppTitle>
+        </LogoContainer>
+        
+        <HeaderGroup>
+          {location && <UserLocation>📍 {location}</UserLocation>}
+          <ToggleButton onClick={toggleTheme}>
+            {darkMode ? '☀️ Claro' : '🌙 Escuro'}
+          </ToggleButton>
+          <MobileMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            ☰
+          </MobileMenuButton>
+        </HeaderGroup>
+      </HeaderContent>
     </PageHeader>
   );
 }
