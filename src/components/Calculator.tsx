@@ -51,22 +51,22 @@ export const Calculator: React.FC = () => {
   const [grandTotal, setGrandTotal] = useState<number>(0);
   const countryCode = 'BR'; // Valor fixo para o código do país
 
-  const calculateTotal = React.useCallback(() => {
-    const total = Object.entries(quantities).reduce((sum, [denomination, quantity]: [string, number]) => {
-      return sum + (parseFloat(denomination) * quantity);
+  useEffect(() => {
+    const total = Object.entries(quantities).reduce((sum, [denomination, quantity]) => {
+      return sum + (parseFloat(denomination) * (quantity || 0));
     }, 0);
     setGrandTotal(total);
   }, [quantities]);
 
-  useEffect(() => {
-    calculateTotal();
-  }, [calculateTotal]);
 
   const handleQuantityChange = (denomination: string, value: string) => {
-    const newQuantity = parseInt(value) || 0;
+    // Se o valor for uma string vazia ou não for um número, trate como 0.
+    const newQuantity = value === '' ? 0 : parseInt(value, 10);
+    
     setQuantities(prev => ({
       ...prev,
-      [denomination]: newQuantity
+      // Garante que o estado nunca seja NaN
+      [denomination]: isNaN(newQuantity) ? 0 : newQuantity
     }));
   };
 

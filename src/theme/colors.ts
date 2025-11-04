@@ -97,7 +97,8 @@ export const gradients = {
   accent: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
   dark: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
   light: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-  glass: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)'
+  glass: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+  glassDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.1) 0%, rgba(15, 23, 42, 0.05) 100%)'
 };
 
 // Sombras modernas

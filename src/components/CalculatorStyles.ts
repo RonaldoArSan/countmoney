@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { modernColors, gradients, shadows, breakpoints } from '../theme/colors';
+import { modernColors, gradients, shadows, breakpoints, lightTheme, darkTheme } from '../theme/colors';
 
 export const CalculatorContainer = styled.div`
   width: 100%;
@@ -19,7 +19,11 @@ export const CalculatorContainer = styled.div`
 
   /* Glass morphism effect */
   &::before {
-// ...existing code...
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   }
@@ -32,85 +36,58 @@ export const CalculatorContainer = styled.div`
   }
 
   /* Tablet */
-// ...existing code...
+  @media (max-width: ${breakpoints.md}) {
     max-width: 380px;
   }
 
   /* Dark mode */
-// ...existing code...
+  body.dark-mode & {
     background: rgba(15, 23, 42, 0.9);
     border: 1px solid rgba(99, 102, 241, 0.2);
     box-shadow: ${shadows.glass}, 0 0 40px rgba(99, 102, 241, 0.1);
   }
 
   /* Hover effect */
-// ...existing code...
+  &:hover {
     transform: translateY(-1px);
     box-shadow: ${shadows.xl}, 0 0 20px rgba(99, 102, 241, 0.1);
   }
 
   @media (hover: none) {
-// ...existing code...
+    &:hover {
       transform: none;
     }
   }
 `;
 
 export const TotalDisplay = styled.div`
-  background: ${gradients.primary};
-  color: white;
-  padding: 0.8rem 0.75rem;
-  text-align: center;
-  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  min-height: 45px;
+  background: ${gradients.glass};
+  color: ${lightTheme.text.primary};
+  font-size: clamp(2rem, 6vh, 3.5rem); /* Fonte maior e responsiva */
+  font-weight: 500;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  text-align: right;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  position: relative;
-  overflow: hidden;
+  min-height: 80px; /* Altura mínima */
+  box-shadow: ${shadows.glass};
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
-  /* Gradient animation */
-  background-size: 200% 200%;
-  animation: gradientShift 4s ease infinite;
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Subtle pattern overlay */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-    opacity: 0.3;
-  }
-
-  /* Currency symbol */
   .currency-symbol {
-    font-size: 0.6em;
-    opacity: 0.9;
-    margin-right: 0.2em;
+    font-size: clamp(1.2rem, 4vh, 2rem);
+    margin-right: 0.5rem;
+    opacity: 0.7;
   }
 
-  /* Mobile adjustments */
-  @media (max-width: ${breakpoints.sm}) {
-    padding: 0.7rem 0.5rem;
-    font-size: clamp(1rem, 5vw, 1.3rem);
-    min-height: 40px;
-  }
-
-  /* Dark mode */
   body.dark-mode & {
-    background: ${gradients.primary};
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: ${gradients.glassDark};
+    color: ${darkTheme.text.primary};
+    border-color: rgba(255, 255, 255, 0.08);
   }
 `;
 
