@@ -151,7 +151,7 @@ function PageFooter() {
         <CopyrightText>
           &copy; {currentYear}
         </CopyrightText>
-        <BrandName>CountMoney</BrandName>
+        <BrandName>Moncoy</BrandName>
         <Separator>•</Separator>
         <CopyrightText>
           Todos os direitos reservados

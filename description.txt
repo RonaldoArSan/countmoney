@@ -1,4 +1,4 @@
-CountMoney is a versatile application designed to simplify currency conversion and financial calculations. Its primary objective is to provide users with a seamless experience for converting currencies, calculating loan installments, and staying informed about currency news.
+Moncoy is a versatile application designed to simplify currency conversion and financial calculations. Its primary objective is to provide users with a seamless experience for converting currencies, calculating loan installments, and staying informed about currency news.
 
 Key features include:
 

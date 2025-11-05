@@ -1,6 +1,6 @@
 {
-  "name": "CountMoney - Calculadora de Dinheiro",
-  "short_name": "CountMoney",
+  "name": "Moncoy - Calculadora de Dinheiro",
+  "short_name": "Moncoy",
   "description": "Aplicativo para calcular dinheiro com diferentes denominações",
   "start_url": "/",
   "display": "standalone",
