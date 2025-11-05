@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from './components/header';
 import { StyleSheetManager } from 'styled-components';
 
 import Calculator from './components/Calculator';
+import CurrencyRates from './components/CurrencyRates';
+import FinancialNews from './components/FinancialNews';
 
 import PageFooter from './components/PageFooter';
 import CookieConsent from './components/CookieConsent';
@@ -13,26 +15,6 @@ import { modernColors, gradients, breakpoints } from './theme/colors';
 type AppProps = Record<string, never>;
 
 const App: React.FC<AppProps> = () => {
-  const [isPWA, setIsPWA] = useState<boolean>(false);
-
-  // Detectar se está rodando como PWA
-  useEffect(() => {
-    const checkPWA = () => {
-      const isPWAMode = 
-        window.matchMedia('(display-mode: standalone)').matches ||
-        window.matchMedia('(display-mode: fullscreen)').matches ||
-        (window.navigator as any).standalone === true ||
-        document.referrer.includes('android-app://');
-      
-      setIsPWA(isPWAMode);
-    };
-
-    checkPWA();
-    window.addEventListener('resize', checkPWA);
-    
-    return () => window.removeEventListener('resize', checkPWA);
-  }, []);
-
   return (
     <>
       <Helmet>
@@ -50,9 +32,11 @@ const App: React.FC<AppProps> = () => {
         <AppContainer className="App">
           <GlobalStyle />
           <Header />
-          <MainContent isPWA={isPWA}>
+          <MainGrid>
+            <CurrencyRates />
             <Calculator />
-          </MainContent>                  
+            <FinancialNews />
+          </MainGrid>
           <PageFooter />
           <CookieConsent />
         </AppContainer>
@@ -130,25 +114,19 @@ const AppContainer = styled.div`
   overflow: hidden;
 `;
 
-const MainContent = styled.main<{ isPWA?: boolean }>`
+const MainGrid = styled.main`
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* Padding para compensar header e footer */
-  padding-top: ${props => props.isPWA ? '10px' : '50px'};
-  padding-bottom: ${props => props.isPWA ? '10px' : '35px'};
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  
-  box-sizing: border-box;
-  overflow: hidden; /* Previne qualquer overflow */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Três colunas: laterais e centro */
+  gap: 1.5rem;
+  padding: 70px 1.5rem 50px; /* Padding para header e footer */
+  align-items: start;
   height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
 
-  /* Mobile responsiveness */
-  @media (max-width: ${breakpoints.sm}) {
-    padding-top: ${props => props.isPWA ? '5px' : '45px'};
-    padding-bottom: ${props => props.isPWA ? '5px' : '30px'};
+  @media (max-width: ${breakpoints.lg}) {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    padding: 60px 1rem 40px;
   }
 `;
