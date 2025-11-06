@@ -296,8 +296,8 @@ function Header() {
     <PageHeader darkMode={darkMode} isPWA={isPWA}>
       <HeaderContent>
         <LogoContainer>
-          <LogoImage src="/logo.JPG" alt="CountMoney Logo" />
-          <AppTitle>CountMoney</AppTitle>
+          <LogoImage src="/logo.svg" alt="Moncoy Logo" />
+          <AppTitle>Moncoy</AppTitle>
         </LogoContainer>
         
         <HeaderGroup>

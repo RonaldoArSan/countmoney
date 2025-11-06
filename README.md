@@ -239,4 +239,4 @@ Se você encontrar algum problema ou tiver sugestões:
 
 ---
 
-**CountMoney** - Calculando o futuro, uma moeda de cada vez! 💰✨
+**Moncoy** - Calculando o futuro, uma moeda de cada vez! 💰✨

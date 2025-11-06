@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'CountMoney - Calculadora de Dinheiro',
-        short_name: 'CountMoney',
-        description: 'Aplicativo para calcular dinheiro com diferentes denominações',
+        name: 'Moncoy - Calculadora de Dinheiro',
+        short_name: 'Moncoy',
+        description: 'Calculadora de dinheiro com diferentes denominações',
         theme_color: '#6366f1',
         background_color: '#0f172a',
         display: 'standalone',
