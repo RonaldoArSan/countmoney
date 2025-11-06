@@ -303,7 +303,7 @@ function Header() {
         <HeaderGroup>
           {location && <UserLocation>📍 {location}</UserLocation>}
           <ToggleButton onClick={toggleTheme}>
-            {darkMode ? '☀️ Claro' : '🌙 Escuro'}
+            {darkMode ? '🌙 Escuro' : '☀️ Claro'}
           </ToggleButton>
           <MobileMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
             ☰
